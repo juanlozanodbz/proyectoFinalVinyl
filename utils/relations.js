@@ -5,8 +5,7 @@ function applyRelationships(sequelize) {
     const Album = sequelize.models.console
     const SongAlbum = sequelize.models.songAlbum
     
-    Song.belongsTo(Album)
-    Album.hasMany(Song, {through:SongAlbum})
+    Album.belongsToMany(Song, {through:SongAlbum})
 }
 
 module.exports = {applyRelationships}

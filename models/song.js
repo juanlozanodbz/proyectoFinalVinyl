@@ -1,5 +1,4 @@
 const Sequelize = require("sequelize")
-const Album = require("./album")
 
 const Song = (sequelize)=>{
     sequelize.define('song',{
