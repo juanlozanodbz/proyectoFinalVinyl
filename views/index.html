@@ -171,27 +171,27 @@
                             <div class="mb-3 bg-secondary text-white">
                               <label for="" class="form-label">ID</label>
                               <input required type="text"
-                                class="form-control" name="idEditar" id="idEditar" aria-describedby="helpId" placeholder="Ingresa el ID">
+                                class="form-control" name="idActualizar" id="idActualizar" aria-describedby="helpId" placeholder="Ingresa el ID">
                             </div>
                             <div class="mb-3 bg-secondary text-white">
                                 <label for="" class="form-label">Nombre</label>
                                 <input required type="text"
-                                  class="form-control" name="nombreEditar" id="nombreEditar" aria-describedby="helpId" placeholder="Ingresa el nombre">
+                                  class="form-control" name="nombreActualizar" id="nombreActualizar" aria-describedby="helpId" placeholder="Ingresa el nombre">
                               </div>
                               <div class="mb-3">
                                   <label for="" class="form-label">Autor</label>
                                   <input required type="text"
-                                    class="form-control" name="autorEditar" id="autorEditar" aria-describedby="helpId" placeholder="Ingresa el autor">
+                                    class="form-control" name="autorActualizar" id="autorActualizar" aria-describedby="helpId" placeholder="Ingresa el autor">
                               </div>
                               <div class="mb-3">
                                   <label for="" class="form-label">Año</label>
                                   <input required type="text"
-                                    class="form-control" name="añoEditar" id="añoEditar" aria-describedby="helpId" placeholder="Ingresa el año de publicación">
+                                    class="form-control" name="añoActualizar" id="añoActualizar" aria-describedby="helpId" placeholder="Ingresa el año de publicación">
                               </div>
                               <div class="mb-3">
                                   <label for="" class="form-label">Género</label>
                                   <input required type="text"
-                                    class="form-control" name="generoEditar" id="generoEditar" aria-describedby="helpId" placeholder="Ingresa el Género">
+                                    class="form-control" name="generoActualizar" id="generoActualizar" aria-describedby="helpId" placeholder="Ingresa el Género">
                               </div>
                             <button type="submit" class="btn btn-primary">Editar</button>
                         </form>
@@ -227,11 +227,11 @@
 
             this.idBorrar= document.getElementById("idBorrar");
 
-            this.idEditar= document.getElementById("idEditar");
-            this.nombreEditar= document.getElementById("nombreEditar");
-            this.autorEditar= document.getElementById("autorEditar");
-            this.añoEditar= document.getElementById("añoEditar");
-            this.generoEditar= document.getElementById("generoEditar");
+            this.idActualizar= document.getElementById("idActualizar");
+            this.nombreActualizar= document.getElementById("nombreActualizar");
+            this.autorActualizar= document.getElementById("autorActualizar");
+            this.añoActualizar= document.getElementById("añoActualizar");
+            this.generoActualizar= document.getElementById("generoActualizar");
 
             this.id= document.getElementById("id");
             this.nombre= document.getElementById("nombre");
@@ -295,9 +295,9 @@
 
             
 
-            this.Actualizar=function(idEditar){
+            this.Actualizar=function(idActualizar){
 
-                var datosActualizar={id:this.idEditar.value, name:this.nombreEditar.value, artist:this.autorEditar.value, year:this.añoEditar.value, genre:this.generoEditar.value}
+                var datosActualizar={id:this.idActualizar.value, name:this.nombreActualizar.value, artist:this.autorActualizar.value, year:this.añoActualizar.value, genre:this.generoActualizar.value}
 
                 fetch(url+"/updateAlbum", {method:"POST", body:JSON.stringify(datosActualizar)})
                 .then((respuesta)=>respuesta.json())
