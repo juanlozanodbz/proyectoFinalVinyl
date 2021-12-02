@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize")
-
+const sequelize = require("../utils/database")
 const Song = (sequelize)=>{
-    sequelize.define('song',{
+    sequelize.define('song'),{
         id:{
             type:Sequelize.INTEGER,
             allowNull: false,
@@ -11,7 +11,7 @@ const Song = (sequelize)=>{
             type:Sequelize.STRING(30),
             allowNull:false
         }
-    })
+    }
 }
 
 module.exports = Song

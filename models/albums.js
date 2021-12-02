@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize")
-
+const sequelize = require("../utils/database")
 const Album = (sequelize)=>{
-    sequelize.define('album',{
+    sequelize.define('album'),{
         id:{
             type:Sequelize.INTEGER,
             allowNull: false,
@@ -21,9 +21,9 @@ const Album = (sequelize)=>{
         },
         year:{
             type:Sequelize.INTEGER,
-            allowNull:true
+            allowNull:false
         }
-    })
+    }
 }
 
 module.exports = Album
