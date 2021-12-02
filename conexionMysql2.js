@@ -2,9 +2,9 @@
 const mysql=require('mysql2')
 
 const configuracion = {
-    host: '54.242.195.178',  //<----IP
-    port: 3306,
-    user:'userX', // mysql -u root
+    host: '54.227.9.233',  //<----IP
+    port: 8083,
+    user:'user4', // mysql -u root
     password:'root'  //<-nombre de la base de datos
 }
 
