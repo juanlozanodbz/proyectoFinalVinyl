@@ -6,7 +6,7 @@ exports.postAddAlbum = (req, res)=>{
     Album.create(req.body)
     .then(result=>{
         console.log("Album created successfully")
-        res.json({state:"accepted"})
+        res.json(req.body)
     })
     .catch((err)=>{
         console.log(err)
@@ -18,7 +18,7 @@ exports.getGetAlbums = (req, res)=>{
     Album.findAll()
         .then(vjs =>{
             console.log(vjs)
-            res.json(vjs)
+            res.json(req.body)
         })
 
         .catch(err =>{
