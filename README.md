@@ -28,3 +28,27 @@ Este endpoint se usa para eliminar un album a la base de datos
 Este endpoint se usa para actualizar un album de la base de datos
 * endpoint: `/updateAlbum`
 * método: `UPDATE`
+
+### 2.1 Add Song
+
+Este endpoint se usa para agregar un album a la base de datos
+* endpoint: `/addSong`
+* método: `CREATE`
+
+### 2.2 Get Song
+
+Este endpoint se usa para visualizar los albumes de la base de datos
+* endpoint: `/getSong`
+* método: `READ`
+
+### 2.3 Delete Song
+
+Este endpoint se usa para eliminar un album a la base de datos
+* endpoint: `/deleteSong`
+* método: `DELETE`
+
+### 2.4 Update Song
+
+Este endpoint se usa para actualizar un album de la base de datos
+* endpoint: `/updateSong`
+* método: `UPDATE`
