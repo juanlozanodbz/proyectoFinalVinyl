@@ -3,7 +3,7 @@ function applyRelationships(sequelize) {
     console.log(sequelize.models)
     
     const Song = sequelize.models.song
-    const Album = sequelize.models.console
+    const Album = sequelize.models.album
     const SongAlbum = sequelize.models.songAlbum
     
     Album.belongsToMany(Song, {through:SongAlbum})
