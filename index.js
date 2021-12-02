@@ -4,13 +4,13 @@ const app = express()
 
 const sRoutes = require('./routes/song')
 const aRoutes = require('./routes/album')
-const asRoutes = require('./routes/songAlbum')
+const saRoutes = require('./routes/songAlbum')
 
 const sequelize = require('./utils/database')
 
 app.use("/songs",sRoutes);
 app.use("/albums",aRoutes);
-app.use("/songAlbum",asRoutes);
+app.use("/songAlbum",saRoutes);
 
 sequelize.sync()
     .then(()=>{

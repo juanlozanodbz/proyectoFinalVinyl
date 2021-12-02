@@ -6,7 +6,7 @@ function applyRelationships(sequelize) {
     const SongAlbum = sequelize.models.songAlbum
 
     Album.hasMany(Song, {through:SongAlbum})
-    Console.belongsToMany(Videojuego, {through:ConsoleVideogame})
+    Song.belongsToOne(Album, {through:SongAlbum})
 }
 
 module.exports = {applyRelationships}
