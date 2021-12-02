@@ -15,6 +15,4 @@ const Song = (sequelize)=>{
     })
 }
 
-Song.BelongsTo(Album);
-
 module.exports = Song
