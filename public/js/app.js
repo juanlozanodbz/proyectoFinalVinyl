@@ -1,6 +1,6 @@
-const { json } = require("express");
 
-var url="";
+
+var url="http://localhost:8083/albums";
 var modal=new bootstrap.modal(document.getElementById('modelId'), {keyboard:false});
 
 var aplicacion= new function(){
@@ -11,6 +11,7 @@ var aplicacion= new function(){
     this.añoEditar= document.getElementById("añoEditar");
     this.generoEditar= document.getElementById("generoEditar");
 
+    this.id= document.getElementById("id");
     this.nombre= document.getElementById("nombre");
     this.autor= document.getElementById("autor");
     this.año= document.getElementById("año");
@@ -20,7 +21,7 @@ var aplicacion= new function(){
 
     this.Leer=function(){
         var datos="";
-        fetch(url)
+        fetch(url+"/getAlbums")
         .then(r=>r.json())
         .then((respuesta)=>{
             console.log(respuesta);
@@ -28,9 +29,9 @@ var aplicacion= new function(){
                 function (album,index,array){
                     datos+="<tr>";
                     datos+="<td>"+album.id+"</td>";
-                    datos+="<td>"+album.nombre+"</td>";
-                    datos+="<td>"+album.año+"</td>";
+                    datos+="<td>"+album.nombre+"</td>"; 
                     datos+="<td>"+album.genero+"</td>";
+                    datos+="<td>"+album.año+"</td>";
                     datos+='<td> <div class="btn-group" role="group" aria-label=""><button type="button" class="btn btn-info" onclick="aplicacion.Editar('+album.id+')">Editar</button><button type="button" class="btn btn-danger" onclick="aplicacion.Borrar('+album.id+')">Borrar</button></div>'+'</td>';
                     datos+="</tr>";
                 }
@@ -48,9 +49,9 @@ var aplicacion= new function(){
         console.log(año.value);
         console.log(genero.value);
 
-        var datosEnviar={nombre:this.nombre.value, autor:this.autor.value, año:this.año.value, genero:this.genero.value}
+        var datosEnviar={id:this.id.value, name:this.nombre.value, artist:this.autor.value, year:this.año.value, genre:this.genero.value}
 
-        fetch(url+"?insertar=1", {method:"POST", body:JSON.stringify(datos)})
+        fetch(url+"/addAlbum", {method:"POST", body:JSON.stringify(datosEnviar)})
         .then((respuesta)=>respuesta.json())
         .then((datosDeRespuesta)=>{
             console.log("insertados");
