@@ -24,6 +24,7 @@
             <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
+                        <form action="javascript:void(0);" method="post" onsubmit= "aplicacion.Actualizar()">
                         <div class="modal-header">
                             <h5 class="modal-title">Editar album</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -32,36 +33,52 @@
                             
                             <div class="mb-3">
                               <label for="idEditar" class="form-label">ID</label>
-                              <input type="text"
+                              <input readonly type="text"
                                 class="form-control" name="idEditar" id="idEditar" aria-describedby="helpId" placeholder="ID">
                             </div>
 
                             <div class="mb-3 bg-secondary text-white">
                                 <label for="" class="form-label">Nombre</label>
                                 <input type="text"
-                                  class="form-control" name="nombreEditar" id="nombreEditar" aria-describedby="helpId" placeholder="Ingresa el nombre">
+                                  class="form-control" required name="nombreEditar" id="nombreEditar" aria-describedby="helpId" placeholder="Ingresa el nombre">
                               </div>
                               <div class="mb-3">
                                   <label for="" class="form-label">Autor</label>
                                   <input type="text"
-                                    class="form-control" name="autorEditar" id="autorEditar" aria-describedby="helpId" placeholder="Ingresa el autor">
+                                    class="form-control" required name="autorEditar" id="autorEditar" aria-describedby="helpId" placeholder="Ingresa el autor">
                               </div>
                               <div class="mb-3">
                                   <label for="" class="form-label">Año</label>
                                   <input type="text"
-                                    class="form-control" name="añoEditar" id="añoEditar" aria-describedby="helpId" placeholder="Ingresa el año de publicación">
+                                    class="form-control" required name="añoEditar" id="añoEditar" aria-describedby="helpId" placeholder="Ingresa el año de publicación">
                               </div>
                               <div class="mb-3">
                                   <label for="" class="form-label">Género</label>
                                   <input type="text"
-                                    class="form-control" name="generoEditar" id="generoEditar" aria-describedby="helpId" placeholder="Ingresa el Género">
+                                    class="form-control" required name="generoEditar" id="generoEditar" aria-describedby="helpId" placeholder="Ingresa el Género">
                               </div>
+                              <div class="mb-3">
+                                <label for="" class="form-label">Canción 1</label>
+                                <input type="text"
+                                  class="form-control" required name="nombreCancion1Editar" id="nombreCancion1Editar" aria-describedby="helpId" placeholder="Ingresa Canción 1">
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Canción 2</label>
+                                <input type="text"
+                                  class="form-control" required name="nombreCancion2Editar" id="nombreCancion2Editar" aria-describedby="helpId" placeholder="Ingresa Canción 2">
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Canción 3</label>
+                                <input type="text"
+                                  class="form-control" required name="nombreCancion3Editar" id="nombreCancion3Editar" aria-describedby="helpId" placeholder="Ingresa Canción 3">
+                            </div>
 
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            <button type="button" class="btn btn-success">Actualizar</button>
+                            <button type="submit" class="btn btn-success">Actualizar</button>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -75,24 +92,40 @@
                         <form action="javascript:void(0);" method="post" onsubmit= "aplicacion.Agregar()">
                             <div class="mb-3 bg-secondary text-white">
                               <label for="" class="form-label">Nombre</label>
-                              <input type="text"
+                              <input required type="text"
                                 class="form-control" name="nombre" id="nombre" aria-describedby="helpId" placeholder="Ingresa el nombre">
                             </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">Autor</label>
-                                <input type="text"
+                                <input required type="text"
                                   class="form-control" name="autor" id="autor" aria-describedby="helpId" placeholder="Ingresa el autor">
                             </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">Año</label>
-                                <input type="text"
+                                <input required type="text"
                                   class="form-control" name="año" id="año" aria-describedby="helpId" placeholder="Ingresa el año de publicación">
                             </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">Género</label>
-                                <input type="text"
+                                <input required type="text"
                                   class="form-control" name="genero" id="genero" aria-describedby="helpId" placeholder="Ingresa el Género">
                             </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Canción 1</label>
+                                <input required type="text"
+                                  class="form-control" name="nombreCancion1" id="nombreCancion1" aria-describedby="helpId" placeholder="Ingresa Canción 1">
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Canción 2</label>
+                                <input required type="text"
+                                  class="form-control" name="nombreCancion2" id="nombreCancion2" aria-describedby="helpId" placeholder="Ingresa Canción 2">
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Canción 3</label>
+                                <input required type="text"
+                                  class="form-control" name="nombreCancion3" id="nombreCancion3" aria-describedby="helpId" placeholder="Ingresa Canción 3">
+                            </div>
+                            
                             <button type="submit" class="btn btn-success">Agregar Album</button>
                         </form>
                     </div>

@@ -4,6 +4,13 @@ var url="";
 var modal=new bootstrap.modal(document.getElementById('modelId'), {keyboard:false});
 
 var aplicacion= new function(){
+
+    this.idEditar= document.getElementById("idEditar");
+    this.nombreEditar= document.getElementById("nombreEditar");
+    this.autorEditar= document.getElementById("autorEditar");
+    this.añoEditar= document.getElementById("añoEditar");
+    this.generoEditar= document.getElementById("generoEditar");
+
     this.nombre= document.getElementById("nombre");
     this.autor= document.getElementById("autor");
     this.año= document.getElementById("año");
@@ -65,7 +72,35 @@ var aplicacion= new function(){
     this.Editar=function(id){
         console.log(id);
 
+        fetch(url+"?consultar="+id)
+        .then((respuesta)=>respuesta.json())
+        .then((datosDeRespuesta)=>{
+            console.log(datosDeRespuesta);
+
+            this.idEditar.value=datosDeRespuesta[0]['id'];
+            this.nombreEditar.value=datosDeRespuesta[0]['nombre'];
+            this.autorEditar.value=datosDeRespuesta[0]['autor'];
+            this.añoEditar.value=datosDeRespuesta[0]['año'];
+            this.generoEditar.value=datosDeRespuesta[0]['genero'];
+        })
+        .catch(console.log);
+
         modal.show();
+    };
+
+    this.Actualizar=function(){
+
+        var datosEnviar={id:this.idEditar.value, nombre:this.nombreEditar.value, autor:this.autorEditar.value, año:this.añoEditar.value, genero:this.generoEditar.value}
+
+        fetch(url+"?actualizar=1", {method:"POST", body:JSON.stringify(datos)})
+        .then((respuesta)=>respuesta.json())
+        .then((datosDeRespuesta)=>{
+            console.log("Actualizados");
+            this.Leer();
+            modal.hide();
+        })
+        .catch(console.log);
+
     }
 }
 aplicacion.Leer();
