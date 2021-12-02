@@ -93,11 +93,7 @@
                     </div>
                     <div class="card-body bg-secondary text-white">
                         <form action="javascript:void(0);" method="post" onsubmit= "aplicacion.Agregar()">
-                            <div class="mb-3 bg-secondary text-white">
-                                <label for="" class="form-label">ID</label>
-                                <input required type="text"
-                                  class="form-control" name="id" id="id" aria-describedby="helpId" placeholder="Ingresa el nombre">
-                              </div>
+                            
                             <div class="mb-3 bg-secondary text-white">
                               <label for="" class="form-label">Nombre</label>
                               <input required type="text"
@@ -140,6 +136,69 @@
                         </form>
                     </div>
                 </div>
+                <div class="container bg-black" >
+                    <p></p>
+                </div>
+                <div class="card bg-secondary text-white">
+                    <div class="card-header">
+                        Borrar Album
+                    </div>
+                    
+                    <div class="card-body bg-secondary text-white">
+                        <form action="javascript:void(0);" method="post" onsubmit= "aplicacion.Borrar()">
+                            
+                            <div class="mb-3 bg-secondary text-white">
+                              <label for="" class="form-label">ID</label>
+                              <input required type="text"
+                                class="form-control" name="idBorrar" id="idBorrar" aria-describedby="helpId" placeholder="Ingresa el ID">
+                            </div>
+                            <button type="submit" class="btn btn-danger">Borrar</button>
+                        </form>
+                    </div>
+                    
+                </div>
+                <div class="container bg-black" >
+                    <p></p>
+                </div>
+                <div class="card bg-secondary text-white">
+                    <div class="card-header">
+                        Editar Album
+                    </div>
+                    
+                    <div class="card-body bg-secondary text-white">
+                        <form action="javascript:void(0);" method="post" onsubmit= "aplicacion.Actualizar(idEditar)">
+                            
+                            <div class="mb-3 bg-secondary text-white">
+                              <label for="" class="form-label">ID</label>
+                              <input required type="text"
+                                class="form-control" name="idEditar" id="idEditar" aria-describedby="helpId" placeholder="Ingresa el ID">
+                            </div>
+                            <div class="mb-3 bg-secondary text-white">
+                                <label for="" class="form-label">Nombre</label>
+                                <input required type="text"
+                                  class="form-control" name="nombreEditar" id="nombreEditar" aria-describedby="helpId" placeholder="Ingresa el nombre">
+                              </div>
+                              <div class="mb-3">
+                                  <label for="" class="form-label">Autor</label>
+                                  <input required type="text"
+                                    class="form-control" name="autorEditar" id="autorEditar" aria-describedby="helpId" placeholder="Ingresa el autor">
+                              </div>
+                              <div class="mb-3">
+                                  <label for="" class="form-label">Año</label>
+                                  <input required type="text"
+                                    class="form-control" name="añoEditar" id="añoEditar" aria-describedby="helpId" placeholder="Ingresa el año de publicación">
+                              </div>
+                              <div class="mb-3">
+                                  <label for="" class="form-label">Género</label>
+                                  <input required type="text"
+                                    class="form-control" name="generoEditar" id="generoEditar" aria-describedby="helpId" placeholder="Ingresa el Género">
+                              </div>
+                            <button type="submit" class="btn btn-primary">Editar</button>
+                        </form>
+                    </div>
+                    
+                </div>
+
             </div>
             <div class="col-md-9">
                 <table class="table text-white">
@@ -150,7 +209,6 @@
                             <th>Autor</th>
                             <th>Año</th>
                             <th>Género</th>
-                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody id="albumes">
@@ -166,6 +224,8 @@
         var modal = new bootstrap.Modal(document.getElementById('modelId'), {keyboard:false});
 
         var aplicacion= new function(){
+
+            this.idBorrar= document.getElementById("idBorrar");
 
             this.idEditar= document.getElementById("idEditar");
             this.nombreEditar= document.getElementById("nombreEditar");
@@ -188,21 +248,19 @@
                 .then((respuesta)=>{
                     console.log(respuesta);
                     respuesta.map(
-                        function (album,index,array){
+                        function (album,index, array){
                             datos+="<tr>";
                             datos+="<td>"+album.id+"</td>";
-                            datos+="<td>"+album.nombre+"</td>"; 
+                            datos+="<td>"+album.nombre+"</td>";
+                            datos+="<td>"+album.autor+"</td>";  
                             datos+="<td>"+album.genero+"</td>";
                             datos+="<td>"+album.año+"</td>";
-                            datos+='<td> <div class="btn-group" role="group" aria-label=""><button type="button" class="btn btn-info" onclick="aplicacion.Editar('+album.id+')">Editar</button><button type="button" class="btn btn-danger" onclick="aplicacion.Borrar('+album.id+')">Borrar</button></div>'+'</td>';
                             datos+="</tr>";
                         }
                     );
                     return this.albumes.innerHTML=datos;
                 })
                 .catch(console.log);
-
-                //datos="<tr><td>1</td><td>Play Deep</td><td>The Outfield</td><td>1985</td><td>Rock</td><td>Editar | Borrar</td></tr>";
                 
             };
             this.Agregar=function(){
@@ -211,56 +269,42 @@
                 console.log(año.value);
                 console.log(genero.value);
 
-                var datosEnviar={id:this.id.value, name:this.nombre.value, artist:this.autor.value, year:this.año.value, genre:this.genero.value}
+                var datosEnviar={id:"1", name:this.nombre.value, artist:this.autor.value, year:this.año.value, genre:this.genero.value}
 
                 fetch(url+"/addAlbum", {method:"POST", body:JSON.stringify(datosEnviar)})
                 .then((respuesta)=>respuesta.json())
                 .then((datosDeRespuesta)=>{
                     console.log("insertados");
+                    console.log(datosEnviar);
                     this.Leer();
                 })
                 .catch(console.log);
             };
 
-            this.Borrar=function(id){
-                console.log(id);
-                fetch(url+"?borrar="+id)
-                .then((respuesta)=>respuesta.json())
-                .then((datosDeRespuesta)=>{
+            this.Borrar=function(idBorrar){
+                var datosBorrar={id:this.idBorrar.value}
+                fetch(url+"/deleteAlbum", {method:"POST", body:JSON.stringify(datosBorrar)})
+                .then((res)=>res.json())
+                .then((datosDeRes)=>{
+                    console.log("borrado");
+                    console.log(datosBorrar);
                     this.Leer();
                 })
                 .catch(console.log);
             };
 
-            this.Editar=function(id){
-                console.log(id);
+            
 
-                fetch(url+"?consultar="+id)
-                .then((respuesta)=>respuesta.json())
-                .then((datosDeRespuesta)=>{
-                    console.log(datosDeRespuesta);
+            this.Actualizar=function(idEditar){
 
-                    this.idEditar.value=datosDeRespuesta[0]['id'];
-                    this.nombreEditar.value=datosDeRespuesta[0]['nombre'];
-                    this.autorEditar.value=datosDeRespuesta[0]['autor'];
-                    this.añoEditar.value=datosDeRespuesta[0]['año'];
-                    this.generoEditar.value=datosDeRespuesta[0]['genero'];
-                })
-                .catch(console.log);
+                var datosActualizar={id:this.idEditar.value, name:this.nombreEditar.value, artist:this.autorEditar.value, year:this.añoEditar.value, genre:this.generoEditar.value}
 
-                modal.show();
-            };
-
-            this.Actualizar=function(){
-
-                var datosEnviar={id:this.idEditar.value, nombre:this.nombreEditar.value, autor:this.autorEditar.value, año:this.añoEditar.value, genero:this.generoEditar.value}
-
-                fetch(url+"?actualizar=1", {method:"POST", body:JSON.stringify(datos)})
+                fetch(url+"/updateAlbum", {method:"POST", body:JSON.stringify(datosActualizar)})
                 .then((respuesta)=>respuesta.json())
                 .then((datosDeRespuesta)=>{
                     console.log("Actualizados");
+                    console.log(datosActualizar);
                     this.Leer();
-                    modal.hide();
                 })
                 .catch(console.log);
 
