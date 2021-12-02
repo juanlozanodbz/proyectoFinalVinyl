@@ -3,7 +3,7 @@ const sequelize = require("../utils/database")
 const Album = (sequelize)=>{
     sequelize.define('album'),{
         id:{
-            type:Sequelize.INTEGER,
+            type:Sequelize.STRING,
             allowNull: false,
             primaryKey: true
         },

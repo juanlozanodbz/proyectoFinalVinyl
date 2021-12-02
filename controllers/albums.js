@@ -18,7 +18,7 @@ exports.getGetAlbums = (req, res)=>{
     Album.findAll()
         .then(vjs =>{
             console.log(vjs)
-            res.json(req.body)
+            res.json(vjs)
         })
 
         .catch(err =>{
