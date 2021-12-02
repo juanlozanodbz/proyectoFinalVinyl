@@ -29,6 +29,8 @@ Este endpoint se usa para actualizar un album de la base de datos
 * endpoint: `/updateAlbum`
 * método: `UPDATE`
 
+----
+
 ### 2.1 Add Song
 
 Este endpoint se usa para agregar un album a la base de datos
