@@ -2,15 +2,18 @@ const express = require("express")
 
 const app = express()
 
-const sRoutes = require('./routes/song')
-const aRoutes = require('./routes/album')
-const saRoutes = require('./routes/songAlbum')
+const sRoutes = require('./routes/songs')
+const aRoutes = require('./routes/albums')
+const saRoutes = require('./routes/songAlbums')
 
 const sequelize = require('./utils/database')
 
+app.use(express.json())
+app.use(express.urlencoded({extended:true}))
+
 app.use("/songs",sRoutes);
 app.use("/albums",aRoutes);
-app.use("/songAlbum",saRoutes);
+app.use("/songAlbums",saRoutes);
 
 sequelize.sync()
     .then(()=>{

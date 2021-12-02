@@ -17,9 +17,9 @@ const sequelize= new Sequelize('DB8','user4','root',{
 //Load models
 const modelDefiners = [
     //Import each model inside models folder
-    require('../models/album'),
-    require('../models/song'),
-    require('../models/songAlbum')
+    require('../models/albums'),
+    require('../models/songs'),
+    require('../models/songAlbums')
 ]
 
 //Adhere to connection object
