@@ -4,7 +4,7 @@ const aController = require('../controllers/albums')
 
 router.post('/addAlbum',aController.postAddAlbum)
 
-router.get('/getAlbum',aController.getGetAlbums)
+router.get('/getAlbums',aController.getGetAlbums)
 
 router.post('/deleteAlbum', aController.postDeleteAlbum)
 
