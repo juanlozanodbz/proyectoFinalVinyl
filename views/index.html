@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca musical</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+</head>
+<body style="background-color: black;">
+    
+    <div class="container p-3 my-3 bg-success text-white">
+        <h1>Biblioteca musical</h1>
+        <p></p>
+        <p>Juan Sebastian Lozano Derbez A01374452</p>
+        <p>Rodrigo Cravioto Caballero A01748172</p>
+    </div>
+    <div class="container">
+        <br/>
+        <div class="row">
+
+            <!-- Modal -->
+            <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Editar album</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            
+                            <div class="mb-3">
+                              <label for="idEditar" class="form-label">ID</label>
+                              <input type="text"
+                                class="form-control" name="idEditar" id="idEditar" aria-describedby="helpId" placeholder="ID">
+                            </div>
+
+                            <div class="mb-3 bg-secondary text-white">
+                                <label for="" class="form-label">Nombre</label>
+                                <input type="text"
+                                  class="form-control" name="nombreEditar" id="nombreEditar" aria-describedby="helpId" placeholder="Ingresa el nombre">
+                              </div>
+                              <div class="mb-3">
+                                  <label for="" class="form-label">Autor</label>
+                                  <input type="text"
+                                    class="form-control" name="autorEditar" id="autorEditar" aria-describedby="helpId" placeholder="Ingresa el autor">
+                              </div>
+                              <div class="mb-3">
+                                  <label for="" class="form-label">Año</label>
+                                  <input type="text"
+                                    class="form-control" name="añoEditar" id="añoEditar" aria-describedby="helpId" placeholder="Ingresa el año de publicación">
+                              </div>
+                              <div class="mb-3">
+                                  <label for="" class="form-label">Género</label>
+                                  <input type="text"
+                                    class="form-control" name="generoEditar" id="generoEditar" aria-describedby="helpId" placeholder="Ingresa el Género">
+                              </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-success">Actualizar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="card bg-secondary text-white">
+                    <div class="card-header">
+                        Ingresar Nuevo Album
+                    </div>
+                    <div class="card-body bg-secondary text-white">
+                        <form action="javascript:void(0);" method="post" onsubmit= "aplicacion.Agregar()">
+                            <div class="mb-3 bg-secondary text-white">
+                              <label for="" class="form-label">Nombre</label>
+                              <input type="text"
+                                class="form-control" name="nombre" id="nombre" aria-describedby="helpId" placeholder="Ingresa el nombre">
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Autor</label>
+                                <input type="text"
+                                  class="form-control" name="autor" id="autor" aria-describedby="helpId" placeholder="Ingresa el autor">
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Año</label>
+                                <input type="text"
+                                  class="form-control" name="año" id="año" aria-describedby="helpId" placeholder="Ingresa el año de publicación">
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Género</label>
+                                <input type="text"
+                                  class="form-control" name="genero" id="genero" aria-describedby="helpId" placeholder="Ingresa el Género">
+                            </div>
+                            <button type="submit" class="btn btn-success">Agregar Album</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <table class="table text-white">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Album</th>
+                            <th>Autor</th>
+                            <th>Año</th>
+                            <th>Género</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="albumes">
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+</body>
+</html>
